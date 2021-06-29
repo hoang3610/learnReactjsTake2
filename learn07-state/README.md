@@ -73,4 +73,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # state la trang thai cua rieng 1 component (no chi duoc su dung trong 1 class hay con goi la component => private trong 1 component)
 # tao state tai constructor: this.state= {key: value, key1: value1}         ({} la 1 cai object)
 # de goi state thi ta dung cu phap: this.state.key
+# thay doi state : this.setState({key:value, key1:value1})
+# khi setState duoc goi thi ham render() duoc goi
+# su khac nhau giua props va state
+# props                                                    | state
+# + nhan du lieu tu ben ngoai                              | + du lieu la noi bo, la private ben trong 1 component
+# + khong the thay doi gia tri                             | + co the thay doi gia tri
 
