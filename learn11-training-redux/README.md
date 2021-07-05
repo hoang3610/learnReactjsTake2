@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# redux
+# redux giup chung ta co the quan li tat ca cac state thong qua 1 cai store
+# cai dat redux bang lenh: npm i redux --save
+# phan tach cac thu muc, chia nho cac phan ra
+# tao 1 cai kho store de luu tru tat ca nhung cai state (import thu vien createStore)
+# dispatch() giup chung ta nhan nhung cai action tu client(vd nhu la action: sort, add), cach su dung store.dispatch()
