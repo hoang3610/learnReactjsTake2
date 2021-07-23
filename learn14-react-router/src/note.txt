@@ -1,0 +1,54 @@
+REACT-ROUTER
+React.js=> tạo component
+Giúp giao diện người dùng(các Component) đồng bộ URL
+Giúp tải trang nhanh
+Phiên bản hiện tại là v4
+Các thành phần tìm hiểu
+Tạo ứng dụng SPA chuyển trang-> không load lại trang(Link &NavLink)
+Tìm hiểu activeStyle, activeClassName: thay đổi đinh dạng đối với route hiện hành
+Không tìm thấy ROUTER
+lấy tham số URL: đối tượng Match
+Prompt
+Redirect
+
+bước làm:
+bước đầu tiên -> import BrowserRouter as Router, Route from react-router-dom
+
+Route là nội dung tương ứng cho từng cái route(nội dung đổ lên)
+bước 2: tạo Route
+    <Route path="/" component="Home" />
+    <Route path="/about" component="About" /> (*luu y:* khi ma "/" voi "/about" no giong nhau thi chung ta can phai them 1 thuoc tinh nữa đó là exact: sự trùng khớp phải tuyêt đối)
+    => nhưng để thế này không được, chúng ta phải bọc toàn bộ project trong cái Router mà ta đã định nghĩa
+        vd: <Router> project </Router>
+tuy chạy được rồi nhưng khi bấm vào link hay đúng hơn bấm vào tag a thì nó vẫn load lại trang
+vì thế điều này không đúng với tiêu chí của react là chuyển trang nhưng không load lại trang
+vì vậy ta chuyển qua bước 3
+bước 3: import Link from react-router-dom
+ở chỗ nào có tag <a> thì ta thay bằng Link, và href thì ta thay bằng thuộc tính to="đường link"
+    khi mình muốn cái trang hiện tại của mình... khi nó đang ở trang hiện tại nó đươc active, hiện lên 1 cái style chữ màu đỏ
+    thì mình có thể sử dụng 1 cái NavLink from react-router-dom và thay Link bằng NavLink
+    NavLink có các thuộc tính để mình có thể chỉnh được css vd: activeStyle
+Nếu chúng ta muốn custom cái link thì chúng ta làm như sau:
+
+đầu tiên const 1 cái MenuLink là 1 cái arrow function và bên trong nó là 1 cái đối tượng(
+    {lable, to, activeOnlyWhenExact}
+) => {
+    return về cái giao diện (
+        thứ nhất sẽ là cái <Route path={to} exact={ activeOnlyWhenExact} 
+        children={({match})=>{
+            var active = match ? 'active abc' : '';
+            return (
+                <li className={active}>
+                    <Link  to={to} className="my-link">{lable}</Link>
+                </li>
+            )
+        }}> bao bên ngoài
+    )
+}
+
+nếu có những link nó không tìm thấy... mình chuyển nó qua cho component NotFound => react-router-dom
+có hỗ trợ Switch để chúng ta có thể chuyển đổi giữa các trang... tương tư như Switch trong ngôn những
+lập trình bình thường
+
+* đối tượng match trong react-router
+* đối tượng Prompt trong react-router
