@@ -1,0 +1,25 @@
+method confirm() dung de hien thi thong bao hoi lai nguoi dung xem co chac chan muon lam viec gi do khong
+    vd: onDelete = (id) => {
+        if(confirm("ban co chac chan muon xoa khong? " )){ //eslint-disable-line
+            this.props.onDelete(id)
+        }
+    }
+
+phai có dữ liệu thì mới dispatch được
+
+luu y: gap loi nay khi import redux-thunk
+Error: It looks like you are passing several store enhancers to createStore(). This is not supported. Instead, compose them together to a single function.
+
+=> Tóm tắt: Hàm createStore chỉ 2 tham số không khuyến khích thêm công cụ dev redux.
+- cách 1: xóa extension redux
+- cách 2 : thay đổi thứ tự - cho middleware lên trước bằng cách bên dưới:
+const store = createStore(
+    appReducers,
+    compose(
+        applyMiddleware(thunk),
+        window._REDUX_DEVTOOLS_EXTENSION_ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+    )    
+ 
+
+)
+->nhớ import compose từ redux
